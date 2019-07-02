@@ -18,4 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/contatos', 'ContatoController');
+Route::resource('/contatos', 'ContatoController', ['except' => ['destroy']]);
+Route::get('/contatos/{contato}/delete', 'ContatoController@destroy')->name('contatos.destroy');
